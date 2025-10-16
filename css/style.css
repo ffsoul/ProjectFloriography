@@ -1,0 +1,441 @@
+/* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
+  HTML content. To learn how to do something, just try searching Google for questions like
+   "how to change link color." */
+
+:root{
+  --color-background: #ebebeb;
+  --color-content-background: #ebebeb;
+  --color-foreground: #a5a5a5;
+  --color-foreground-text: #ffffff;
+  --color-body-text: rgba(39, 35, 37, 1);
+  --color-accent: hsl(202, 21%, 45%);
+  --color-accent-alt: #bd3b3b;
+  --color-accent-alt2: #c8cecf;
+  --color-accent-link: #64a3e2;
+
+  --link-color-hover:rgba(39, 35, 37, 1);
+  --notes:rgba(39, 35, 37, .75);
+}
+
+@font-face {
+  font-family: Flama;
+  src: local("./fonts/FlamaSemicond-Basic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: DM Sans;
+  src: local("./fonts/DMSans.ttf") format("truetype");
+}
+
+
+body, div, main, section, article {
+  box-sizing: border-box; 
+}
+
+/* universal background color */
+body {
+  background-color: var(--color-background); 
+}
+
+img{
+  max-width:100%;
+ }
+
+/* img:hover {
+ -ms-transform: scale(1.1); 
+ -webkit-transform: scale(1.1); 
+ transform: scale(1.1);
+ } */
+
+/* header image */
+header img {
+  width: 500px;
+  max-width: 98%;
+  transition: transform .4s, filter 0.4s ease-in-out;
+
+}
+
+header img:hover{
+
+  filter: drop-shadow(0px 0px 5px rgb(197, 197, 197));
+  transition: transform .4s, filter 0.4s ease-out;
+
+
+}
+/* clearfix hack to prevent image overflow. check out the W3Schools page on it. */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/*FONTS*/
+
+/* header font */
+#showComic, header, h1, h2, h3, h4, h5 {
+  font-family: 'Flama SemiCondensed', sans-serif;
+  font-weight: 600;
+  padding-top: 20px;
+}
+
+/* body font */
+.subPage p, footer, #authorNotes, .archiveTable {
+  font-family: 'DM Sans', sans-serif;
+  font-size: large;
+}
+
+
+/* STYLING FOR SUBPAGES (about, characters, etc) */
+
+/*general*/
+
+.subPage {
+  width: 1500px;
+  max-width: 98%;
+  background-color: #ffffff;
+  outline: 3px solid #000000;
+  margin: auto;
+  margin-bottom: 10px;
+  padding: 0px 12px 12px;
+  border-radius: 2px;
+}
+
+p {
+  margin-top:10px;
+  margin-bottom:2px;
+}
+
+.subPage:not(.archivePage) {
+  text-align: center;
+}
+
+/* for pictures displayed to the left */
+.leftPic {
+  clear: left;
+  float:right;
+  margin-left:20px;
+}
+
+/* for pictures displayed to the left */
+.rightPic {
+  clear: right;
+  float:left;
+  margin-left:20px;
+}
+
+/* specific to Characters */
+.charTable, .charTable td { 
+  width: 100%;
+}
+
+/* link colors */
+a {
+      color: var(--color-body-text);
+      transition: all.1s ease-in;
+    }
+
+a:hover {
+      color: var(--color-accent-link);
+    }
+
+/* HEADER */
+header #nav {
+  /* background-color: #ffffff; */
+  /* outline: 3px solid #000000; */
+  font-size: 20px;
+  max-width: 60%;
+  margin: auto;
+  padding: 10px;
+  border-radius: 2px;
+  margin: auto;
+  display:flex;
+  justify-content: space-evenly;
+  padding: 10px;
+
+}
+
+
+/* HOMEPAGE */
+
+/* style nav button images */
+.comicNav {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0px;
+  gap: 10px;
+}
+.comicNav img {
+  width: 80px;
+  max-width: 98%;
+  padding-right: 30px;
+}
+
+nav a, .comicNav a, .social-media a {  --stroke-pos: 1px;
+  --stroke-neg: -1px;
+  --stroke-color: var(--color-foreground-text);
+  transition: transform .4s, filter 0.4s ease-out;
+
+  }
+
+  
+nav a:hover, .comicNav a:hover, .social-media a:hover {
+--stroke-color: var(--color-accent-link);
+transform: scale(.95);
+transition: transform .4s, filter 0.4s ease-out;
+background:transparent;
+filter: drop-shadow(0px 0px 5px rgb(136, 136, 136));
+}
+
+/* style comic page image */
+.comicPage img {
+  max-height: 95vh
+}
+
+.comicPage img:hover{
+  -ms-transform: scale(1.0); /* IE 9 */
+  -webkit-transform: scale(1.0); /* Safari 3-8 */
+  transform: scale(1.0);
+  }
+
+/* style author notes */
+#authorNotes {
+  background-color:#ffffff;
+  outline: 3px solid #000000;
+  margin: auto;
+  padding: 3px;
+  padding-left: 25px;
+  padding-top: 0px;
+  padding-right: 25px;
+  padding-bottom:20px;
+  width: 900px;
+  max-width: 98%;
+  border-radius: 2px;
+}
+
+/* ARCHIVE PAGE */
+
+/* style table in which archive is displayed */
+.archiveTable {
+  width: 90%;
+  
+  border-collapse:collapse;
+}
+
+/* style archive table cells */
+.archiveTable td {
+  padding: 3px;
+  vertical-align: center;
+  
+}
+
+/* style table cell in which page title is displayed */
+.archiveCellTitle:not(.leftAlignTableText) {
+  max-width: 300px;
+  text-align: center;
+}
+
+.archiveCellDate {
+  text-align: right;
+  min-width: 120px;
+}
+
+.archiveCellNum {
+  text-align: center;
+  min-width: 30px;
+}
+
+/* style the thumbnails on the archive page */
+.archiveCellThumb {
+    width: 500px;
+    max-width: 60px;
+}
+.archiveCellThumb img{
+    max-width: 100%;
+  }
+
+/* for left aligning the text in a table cell */
+.leftAlignTableText td {
+  text-align: left;
+}
+
+/* highlight a table row and make pointer into hand when moused over */
+.archiveRow:hover {
+  background-color: var(--color-accent-link);
+  transition: background-color .4s, filter 0.4s ease-in-out;
+  cursor: pointer;
+  border-radius: 0px;
+}
+
+.archiveRow{
+  transition: background-color .4s, filter 0.4s ease-in-out;
+}
+
+/* FOOTER */
+footer {
+  color: #421a1a;
+  margin-top: 12px;
+  margin-bottom: 15px;
+  float: left;
+  width: 100%;
+  font-size: 12px;
+}
+
+footer p {
+  margin: auto;
+}
+
+footer a {
+  color: var(--color-body-text);
+}
+
+footer a:hover {
+  color: var(--color-accent-link);
+  -ms-transform: scale(1.1); 
+  -webkit-transform: scale(1.1); 
+  transform: scale(1.1);
+}
+
+
+.icons img{
+  height: 20px;
+  transition: transform .4s, filter 0.4s ease-out;
+
+}
+
+.icons img:hover{
+  -ms-transform: scale(1.1); 
+  -webkit-transform: scale(1.1); 
+  transform: scale(1.1);
+  transition: transform .4s, filter 0.4s ease-out;
+
+}
+
+/* take away margins from the edges of the screen */
+html, body {
+  margin: 0;
+}
+
+.flex-container .column{
+  padding: 0px;
+  background: #fff;
+  vertical-align:middle;
+  width:75%;
+  -webkit-flex: 1; /* Safari */
+  -ms-flex: 1; /* IE 10 */
+  flex: 1; /* Standard syntax */
+
+}
+.flex-container .column.bg-alt{
+  background: #fff;
+  width:25%;
+  margin:auto;
+
+}
+
+
+
+
+.flex-container {
+display: flex;
+flex-wrap: wrap;
+font-size: 30px;
+text-align: left;
+}
+
+.flex-container .column{
+padding: 10px;
+flex: 60%;
+}
+
+.flex-container .column.bg-alt{
+padding: 10px;
+flex: 40%;
+}
+
+
+
+
+
+
+
+
+.targetDiv{
+display: none;
+}
+
+.hide{
+display: none;
+}
+
+table.table1 {
+  font-size:11px;
+  margin-top:px;
+  color:#fff;
+  line-height:0;
+}
+.table1 th, td {
+text-align:left;
+border-radius:0px;
+}
+.table1 img {
+width:90%;
+  border-radius:5px;
+  border: 0.2rem solid var(--color-background);
+  filter: grayscale(100%);
+  transition: transform .4s, filter 0.4s ease-in-out;
+
+}
+.table1 img:hover{
+/* -ms-transform: scale(1.05); 
+-webkit-transform: scale(1.05); 
+transform: scale(1.05); */
+transition: transform .4s, filter 0.4s ease-in-out;
+filter: grayscale(0%) drop-shadow(0px 0px 5px rgb(197, 197, 197));
+}
+
+.table2 th, td {
+  text-align:left;
+}
+
+
+.stype1
+{
+border-bottom-style:none;
+border-top-style:none;
+}
+.stype2
+{
+border-bottom-style:none;
+border-top-style:none;
+border-left-style:none;
+}
+
+
+
+@media (max-width: 1060px) {
+.flex-item-right, .flex-item-left {
+  flex: 100%;
+}
+
+}
+
+@media (max-width: 600px){
+  
+header #nav {
+  /* background-color: #ffffff; */
+  /* outline: 3px solid #000000; */
+  font-size: 20px;
+  max-width: 80%;
+  margin: auto;
+  padding: 10px;
+  border-radius: 2px;
+  margin: auto;
+  display:flex;
+  justify-content: center;
+  flex-wrap:wrap;
+  padding: 10px;
+
+}
+}
